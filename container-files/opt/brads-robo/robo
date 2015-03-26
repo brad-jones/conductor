@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+// Install Composer
+require_once(__DIR__.'/vendor/autoload.php');
+
+// Initialise the runner
+$runner = new \Brads\Robo\Runner();
+$runner->execute('RoboFile');

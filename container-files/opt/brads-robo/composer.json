@@ -1,0 +1,6 @@
+{
+	"require":
+	{
+		"brad-jones/robo-tasks": "0.2.*"
+	}
+}
