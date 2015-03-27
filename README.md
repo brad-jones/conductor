@@ -17,9 +17,8 @@ Assuming you have ```docker``` already installed, its pretty straight forward:
 
 	docker pull bradjones/conductor:latest
 
-Then just grab a copy of [conductor](https://github.com/brad-jones/conductor/blob/master/example-project/conductor)
-and place it in the root of your new fancy docker based project along with a
-```RoboFile.php```
+Then just grab a copy of [conductor](http://git.io/jCzW) and place it in the
+root of your new fancy docker based project along with a ```RoboFile.php```
 
 > For more info about docker see: http://www.docker.com/
 
