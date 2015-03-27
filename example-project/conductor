@@ -1,0 +1,20 @@
+#!/bin/sh
+# ==============================================================================
+# Conductor: A docker task runner
+# ==============================================================================
+# This is a proxy script to streamline the running of the conductor container.
+# The idea is that you would copy this script into the root of your new
+# docker project. Along with a RoboFile.
+
+# Define some variables
+self=$(readlink -f $0)
+dir=`dirname ${self}`
+socket="/var/run/docker.sock"
+docker=$(which docker)
+
+# Run the conductor container, passing along on any arguments
+docker run -it --rm \
+-v $docker:$docker \
+-v $socket:$socket \
+-v $dir:/mnt/src \
+bradjones/conductor:latest "$@"

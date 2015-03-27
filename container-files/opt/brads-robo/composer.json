@@ -1,6 +1,8 @@
 {
 	"require":
 	{
-		"brad-jones/robo-tasks": "0.2.*"
+		"brad-jones/robo-tasks": "0.2.*",
+		"interconnectit/search-replace-db": "*",
+		"phpseclib/phpseclib": "*"
 	}
 }

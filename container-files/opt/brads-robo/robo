@@ -2,7 +2,13 @@
 <?php
 
 // Install Composer
-require_once(__DIR__.'/vendor/autoload.php');
+require('/opt/brads-robo/vendor/autoload.php');
+
+// Change into the main working dir
+chdir('/mnt/src');
+
+// Include the RoboFile
+require('RoboFile.php');
 
 // Initialise the runner
 $runner = new \Brads\Robo\Runner();
