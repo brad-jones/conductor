@@ -17,4 +17,5 @@ docker run -it --rm \
 -v $docker:$docker \
 -v $socket:$socket \
 -v $dir:/mnt/src \
+--env CONDUCTOR_ROOT=$dir \
 bradjones/conductor:latest "$@"
