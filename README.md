@@ -77,5 +77,23 @@ It automates the entire process from build through to removal.
 
 The RoboFile is heavily commented so I won't bother repeating myself here.
 
+SELinux Security Setup
+--------------------------------------------------------------------------------
+This applies to anyone with SELinux installed on their host system.
+So basically any RHEL/CentOS/Fedora user.
+
+The [conductor](http://git.io/jCzW) shell script bind mounts the docker socket
+into the conductor container. Which allows conductor to script the builds and
+deployment of your docker containers.
+
+The guys at Redhat have decided that this practise poses some security risks.
+To get past the SELinux policies you either need to disable SELinux or set it
+to permissive mode.
+
+OR install this piece of kit: https://github.com/dpw/selinux-dockersock
+
+If you do not do either of these things, conductor will fail with lots of
+permission denied errors, when you attempt to access the docker socket.
+
 --------------------------------------------------------------------------------
 Developed by Brad Jones - brad@bjc.id.au
