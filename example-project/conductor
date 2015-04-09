@@ -11,6 +11,7 @@ self=$(readlink -f $0)
 dir=`dirname ${self}`
 socket="/var/run/docker.sock"
 docker=$(which docker)
+docker_host=`ip route show 172.17.0.0/16 | grep -Eo 'src \S+' | awk '{ print $2 }'`
 
 # Run the conductor container, passing along on any arguments
 docker run -it --rm \
@@ -18,4 +19,8 @@ docker run -it --rm \
 -v $socket:$socket \
 -v $dir:/mnt/src \
 --env CONDUCTOR_ROOT=$dir \
+--env CONDUCTOR_HOST=$docker_host \
+--env CONDUCTOR_DOCKER_BIN=$docker \
+--env CONDUCTOR_DOCKER_SOCKET=$socket \
+--add-host=docker:$docker_host \
 bradjones/conductor:latest "$@"
